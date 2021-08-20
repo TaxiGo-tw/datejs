@@ -1,5 +1,5 @@
 const MockDate = require('mockdate')
-const DateJS = require('../')
+const DateJS = require('..')
 
 describe('test date js', function () {
 	beforeEach(() => {
