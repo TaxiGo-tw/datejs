@@ -1,5 +1,5 @@
 
-let defaultTimezone = 0
+let defaultTimezoneOffset = 0
 
 module.exports = class DateJS {
 	constructor() {
@@ -7,7 +7,7 @@ module.exports = class DateJS {
 	}
 
 	static setDefaultTimezone(newValue) {
-		defaultTimezone = newValue
+		defaultTimezoneOffset = newValue
 	}
 
 	config(cb) {
@@ -31,7 +31,7 @@ module.exports = class DateJS {
 	/**
 	 * @returns offset timezone hourly from current
 	**/
-	tz(zone = defaultTimezone) {
+	tz(zone = defaultTimezoneOffset) {
 		return DateJS.unix(this._date.getTime() / 1000 + zone * 3600)
 	}
 
@@ -125,7 +125,7 @@ module.exports = class DateJS {
 	}
 
 	/* formatter */
-	format(string, timezone = defaultTimezone) {
+	format(string, timezone = defaultTimezoneOffset) {
 		const date = this.tz(timezone)
 
 		return string
@@ -138,7 +138,7 @@ module.exports = class DateJS {
 			.replace(/mm/g, date.get('getMinutes'))
 	}
 
-	calendar({ meridiem = true, timezone = defaultTimezone } = {}) {
+	calendar({ meridiem = true, timezone = defaultTimezoneOffset } = {}) {
 		const copiedDateJS = DateJS.unix(this._date.getTime() / 1000).tz(timezone)
 
 		const M = copiedDateJS.getMonth(['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'])
