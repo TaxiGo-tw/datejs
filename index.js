@@ -6,7 +6,7 @@ module.exports = class DateJS {
 		this._date = new Date()
 	}
 
-	static set setDefaultTimezone(newValue) {
+	static setDefaultTimezone(newValue) {
 		defaultTimezone = newValue
 	}
 
