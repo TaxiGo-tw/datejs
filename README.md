@@ -1,3 +1,9 @@
+### Install
+
+```bash
+npm i --save tg-datejs
+```
+
 ### Usage
 
 ```js
