@@ -1,5 +1,5 @@
 
-let defaultTimezoneOffset = 0
+let defaultTimezoneOffset = 8
 
 module.exports = class DateJS {
 	constructor() {
